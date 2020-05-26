@@ -1,8 +1,5 @@
 const express = require('express');
+const app = express();
 
 
-const server = express();
-
-
-
-server.listen(3333);
+app.listen(3333, () => console.log("Servidor Rodando..."));
