@@ -6,7 +6,7 @@ module.exports = {
     connection: {
       database: "node-knex-crud",
       user: "postgres",
-      password: ""
+      password: "1836"
     },
     //Definindo o local onde irá ficar as migrations criadas
     migrations: {
