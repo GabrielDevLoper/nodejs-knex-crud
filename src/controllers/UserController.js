@@ -5,7 +5,7 @@ module.exports = {
         try {
             const users = await knex('users');
     
-            return res.status(200).json(users);
+            return res.json(users);
         } catch (error) {
             next(error)
         } 
@@ -37,7 +37,6 @@ module.exports = {
             next(error)
         }
     },
-
     async delete(req, res, next) {
         try {
             const { id } = req.params;
