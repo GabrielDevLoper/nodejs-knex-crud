@@ -14,3 +14,6 @@
 
 # EXECUTANDO OS SEEDS
 # npx knex seed:run
+
+# EXECUTANDO UM SEED ESPECIFICO
+# npx knex seed:run --specific "nome do seed"
