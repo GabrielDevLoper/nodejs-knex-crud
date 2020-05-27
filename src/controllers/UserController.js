@@ -18,7 +18,7 @@ module.exports = {
                 username
             });
     
-            return res.status(201).json(users);
+            return res.status(201).json({message: "Usuário Cadastrado com Sucesso!"});
         } catch (error) {
             next(error);
         }    
@@ -32,7 +32,7 @@ module.exports = {
                 username
             }).where({id});
 
-            return res.json({message: "Alterado com Sucesso!"});
+            return res.json({message: "Usuáro Alterado com Sucesso!"});
         } catch (error) {
             next(error)
         }

@@ -4,9 +4,9 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: "node-knex-crud",
+      database: "Node-Knex",
       user: "postgres",
-      password: "1836"
+      password: "postgres"
     },
     //Definindo o local onde irá ficar as migrations criadas
     migrations: {
