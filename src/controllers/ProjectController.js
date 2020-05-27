@@ -10,7 +10,6 @@ module.exports = {
 
             const countObj = knex('projects').count();
                 
-
             if(user_id) {
                 projects
                     .where({ user_id })
