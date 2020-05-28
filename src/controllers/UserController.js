@@ -32,7 +32,7 @@ module.exports = {
             if(users.length === 0) {
                 return res.json({message: "Usuário não Encontrado"});
             }
-            
+        
             return res.json(users);
         } catch (error) {
             next(error);
