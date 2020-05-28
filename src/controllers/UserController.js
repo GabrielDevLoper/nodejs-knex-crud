@@ -3,18 +3,19 @@ const knex = require('../database');
 module.exports = {
     async index(req, res, next) {
         try {
-            const users = await knex('users');
+            const users = await knex('users')
+                .where('deleted_at', null)
     
             return res.json(users);
         } catch (error) {
-            next(error)
+            next(error);
         } 
     },
     async create(req, res, next) {
         try {
             const { username } = req.body
 
-            const users = await knex('users').insert({
+            await knex('users').insert({
                 username
             });
     
@@ -23,27 +24,43 @@ module.exports = {
             next(error);
         }    
     },
+    async show(req, res, next) {
+        try {
+            const { id } = req.params;
+            const users = await knex('users').where({ id });
+
+            if(users.length === 0) {
+                return res.json({message: "Usuário não Encontrado"});
+            }
+            
+            return res.json(users);
+        } catch (error) {
+            next(error);
+        }
+    },
     async update(req, res, next){
         try {
             const { id } = req.params;
             const { username } = req.body;
 
-            const users = await knex('users').update({
+            await knex('users').update({
                 username
             }).where({id});
 
-            return res.json({message: "Usuáro Alterado com Sucesso!"});
+            return res.json({message: "Usuário Alterado com Sucesso!"});
         } catch (error) {
-            next(error)
+            next(error);
         }
     },
     async delete(req, res, next) {
         try {
             const { id } = req.params;
             
-            await knex('users').delete().where({ id });
+            await knex('users')
+                .where({ id })
+                .update('deleted_at', new Date());
 
-            return res.json({message: "Excluído com Sucesso!"});
+            return res.json({message: "Usuário Excluído com Sucesso!"});
         } catch (error) {
             next(error);
         }

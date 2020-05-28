@@ -15,8 +15,9 @@ module.exports = {
                     .where({ user_id })
                     .join('users', 'users.id', '=', 'projects.user_id')
                     .select('projects.id', 'users.username', 'projects.title')
+                    .where('users.deleted_at', null);
 
-                    countObj
+                countObj
                     .where({ user_id })
             }
 

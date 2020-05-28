@@ -12,6 +12,7 @@ routes
     .post('/users', UserController.create)
     .put('/users/:id', UserController.update)
     .delete('/users/:id', UserController.delete)
+    .get('/users/:id', UserController.show)
     //Rotas para Projetos
     .get('/projects', ProjectController.index)
     .post('/projects', ProjectController.create)
